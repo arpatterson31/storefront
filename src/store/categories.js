@@ -14,7 +14,7 @@ export default function catReducer(state = initialState, action){
     case 'ACTIVATE':
       return {...state, activeCategory: payload.category};
 
-    case 'INACTIVE':
+    case 'INACTIVATE':
       return initialState;
 
     default: 
