@@ -1,8 +1,10 @@
+import { product } from "prelude-ls";
+
 let initialState = {
   products: [
-    { name:'Samsung TV', category: 'Electronics', description: '55 inch television', price: 999, count: 2021 },
+    { name: 'Samsung TV', category: 'Electronics', description: '55 inch television', price: 999, count: 2021 },
     { name: 'iPhone 12', category: 'Electronics', description: 'smart phone', price: 699, count: 200 },
-    { name: 'ChromeBook', category: 'Electronics', description: 'laptop', price: 399, count:800 },
+    { name: 'ChromeBook', category: 'Electronics', description: 'laptop', price: 399, count: 800 },
     { name: 'T-Shirt', category: 'Clothes', description: 't-shirt', price: 10, count: 250 },
     { name: 'Hoodie', category: 'Clothes', description: 'keeps you warm', price: 15, count: 500 },
     { name: 'Fancy Shoes', category: 'Clothes', description: 'not knock-offs', price: 70, count: 300 },
@@ -16,15 +18,26 @@ let initialState = {
 export default function productReducer(state = initialState, action) {
   let { type, payload } = action;
 
-  switch(type) {
-    case 'ALL PRODUCTS':
+  switch (type) {
+    case 'ALL_PRODUCTS':
       return state.products
 
     case 'ACTIVATE':
       const activeProducts = getFilteredProducts(payload.category);
-      return {...state, activeProducts: activeProducts }
+      return { ...state, activeProducts: activeProducts }
 
-    default: 
+    case 'ADD_TO_CART':
+      let stock = state.activeProducts.map(item => {
+        if (item.name === payload.name) {
+          return { ...item, count: payload.count - 1 }
+        } else {
+          return item;
+        }
+      });
+      
+      return {...state, activeProducts: stock }
+
+    default:
       return state;
   }
 }
@@ -37,6 +50,13 @@ export const getFilteredProducts = (category) => {
 
 export const allProducts = () => {
   return {
-    type: 'ALL PRODUCTS'
+    type: 'ALL_PRODUCTS'
+  }
+}
+
+export const addToCart = (product) => {
+  return {
+    type: 'ADD_TO_CART',
+    payload: product
   }
 }
