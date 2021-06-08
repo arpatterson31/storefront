@@ -1,6 +1,5 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
-// import pink from '@material-ui/core/colors/pink';
 import { makeStyles } from '@material-ui/styles';
 
 const useStyles = makeStyles ({
