@@ -36,7 +36,7 @@
 ## Links and Resources
 
 - [Deployed Site](https://xyz.com)
-- [Pull Request Redux to Main](https://github.com/arpatterson31/storefront/pull)
+- [Pull Request Redux to Main](https://github.com/arpatterson31/storefront/pull/1)
 
 ### UML
 
