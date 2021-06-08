@@ -41,3 +41,5 @@
 ### UML
 
 - Lab 36 UML
+
+![Lab 36 UML](src/assets/lab36-uml.jpg)
