@@ -42,7 +42,7 @@ const Products = props => {
                 </CardActionArea>
                 <CardActions>
                   <IconButton 
-                  onClick={() => props.addToCart(item.name)} 
+                  onClick={() => props.addToCart(item)} 
                   color="primary" 
                   aria-label="add to shopping cart"
                   >
