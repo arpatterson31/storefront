@@ -15,6 +15,7 @@ import { connect } from 'react-redux';
 
 import { activate, inactivate } from '../../store/categories.js';
 import { getFilteredProducts, allProducts } from '../../store/products.js';
+import { addToCart } from '../../store/cart.js';
 
 const Products = props => {
   return (
@@ -40,7 +41,11 @@ const Products = props => {
                   </CardContent>
                 </CardActionArea>
                 <CardActions>
-                  <IconButton color="primary" aria-label="add to shopping cart">
+                  <IconButton 
+                  onClick={() => props.addToCart(item.name)} 
+                  color="primary" 
+                  aria-label="add to shopping cart"
+                  >
                     <AddShoppingCartIcon />
                   </IconButton>
                   <Button size="small" color="primary">
@@ -59,7 +64,10 @@ const Products = props => {
 
 const mapStateToProps = state => ({
   products: state.products,
-  categories: state.categories
+  categories: state.categories,
+  cart: state.cart
 })
 
-export default connect(mapStateToProps)(Products);
+const mapDispatchToProps = { addToCart }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Products);
