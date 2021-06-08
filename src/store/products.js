@@ -19,9 +19,9 @@ export default function productReducer(state = initialState, action) {
   switch(type) {
     case 'ALL PRODUCTS':
       return state.products
-      
+
     case 'ACTIVATE':
-      const activeProducts = getFilteredProducts(payload);
+      const activeProducts = getFilteredProducts(payload.category);
       return {...state, activeProducts: activeProducts }
 
     default: 
