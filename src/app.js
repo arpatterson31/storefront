@@ -9,7 +9,6 @@ const App = () => {
   return(
     <>
     <Header />
-    <h1>Hey girl hey!</h1>
     <Categories />
     <Products />
     <Footer />
