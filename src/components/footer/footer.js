@@ -1,18 +1,23 @@
 import React from 'react';
+import Typography from '@material-ui/core/Typography';
+// import pink from '@material-ui/core/colors/pink';
+import { makeStyles } from '@material-ui/styles';
+
+const useStyles = makeStyles ({
+  footer:{
+    background: '#f50057',
+    marginTop: '20px'
+  }
+});
 
 const Footer = () => {
+  const styles = useStyles();
   return (
     <>
-      <footer>
-        <section id="contact">
-          <h2>Contact Us</h2>
-          <ul>
-            <li>HQ: 95 Main Street, Seattle, WA 98101</li>
-            <li>Phone: 206-555-2374</li>
-            <li>Email: audrey@buymystuff.com</li>
-          </ul>
-        </section>
-        <p>&copy; 2021 Audrey-Code Fellows</p>
+      <footer className={styles.footer}>
+          <Typography align="center" variant="h6">Contact Us</Typography>
+          <Typography align="center" variant="subtitle1">Seattle, WA | 206-555-2374 | audrey@buymystuff.com</Typography>
+          <Typography align="center" variant="body2" >&copy; 2021 Audrey-Code Fellows</Typography>
       </footer>
     </>
   )
