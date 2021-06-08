@@ -24,18 +24,18 @@ export default function productReducer(state = initialState, action) {
 
     case 'ACTIVATE':
       const activeProducts = getFilteredProducts(payload.category);
-      return { ...state, activeProducts: activeProducts }
+      return { ...state, products: activeProducts }
 
     case 'ADD_TO_CART':
-      let stock = state.activeProducts.map(item => {
+      let stock = state.products.map(item => {
         if (item.name === payload.name) {
           return { ...item, count: payload.count - 1 }
         } else {
           return item;
         }
       });
-      
-      return {...state, activeProducts: stock }
+
+      return {...state, products: stock }
 
     default:
       return state;

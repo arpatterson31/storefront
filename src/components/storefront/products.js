@@ -18,45 +18,51 @@ import { getFilteredProducts, allProducts } from '../../store/products.js';
 import { addToCart } from '../../store/cart.js';
 
 const Products = props => {
+
+
   return (
     <section>
       <Typography align="center" variant="h3">{props.categories.activeCategory}</Typography>
-      <Typography align="center" variant="subtitle1" style={{marginBottom: "60px"}}>{props.categories.activeCatDescription}</Typography>
-    
-        <Grid container justify="center" spacing={4}>
-          {props.products.activeProducts.map(item => (
-            <Grid item key={item.name}>
-              <Card>
-                <CardActionArea>
-                  <CardMedia
-                    title={item.name}
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      {item.name}
-                    </Typography>
-                    <Typography variant="body2" color="textSecondary" component="p">
-                      {item.description}
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
-                <CardActions>
-                  <IconButton 
-                  onClick={() => props.addToCart(item)} 
-                  color="primary" 
-                  aria-label="add to shopping cart"
-                  >
-                    <AddShoppingCartIcon />
-                  </IconButton>
-                  <Button size="small" color="primary">
-                    View Details
-                  </Button>   
-                </CardActions>
-              </Card>
-            </Grid>
-          ))}
+      <Typography align="center" variant="subtitle1" style={{ marginBottom: "60px" }}>{props.categories.activeCatDescription}</Typography>
 
-        </Grid>
+      <Grid container justify="center" spacing={4}>
+        {props.products.products.map(item => {
+          if (item.category === props.categories.activeCategory)
+          return (
+          <Grid item key={item.name}>
+            <Card>
+              <CardActionArea>
+                <CardMedia
+                  image={item.image}
+                  title={item.name}
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    {item.name}
+                  </Typography>
+                  <Typography variant="body2" color="textSecondary" component="p">
+                    {item.description}
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+              <CardActions>
+                <IconButton
+                  onClick={() => props.addToCart(item)}
+                  color="primary"
+                  aria-label="add to shopping cart"
+                >
+                  <AddShoppingCartIcon />
+                </IconButton>
+                <Button size="small" color="primary">
+                  View Details
+                  </Button>
+              </CardActions>
+            </Card>
+          </Grid>
+          )
+        })}
+
+      </Grid>
 
     </section>
   )

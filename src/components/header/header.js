@@ -31,7 +31,7 @@ const StyledBadge = withStyles((theme) => ({
 
 const Header = (props) => {
   const classes = useStyles();
-  console.log('length?', props.cart.cart.length);
+  
   return (
     <>
   
