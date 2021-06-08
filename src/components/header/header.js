@@ -9,6 +9,8 @@ import Badge from '@material-ui/core/Badge';
 import { withStyles } from '@material-ui/core/styles';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
+import { connect } from 'react-redux';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -27,11 +29,12 @@ const StyledBadge = withStyles((theme) => ({
   },
 }))(Badge);
 
-const Header = () => {
+const Header = (props) => {
   const classes = useStyles();
-
+  
   return (
     <>
+  
       <header className={classes.root}>
         <AppBar position="static" color="secondary">
           <Toolbar>
@@ -39,7 +42,7 @@ const Header = () => {
               Audrey's Wares
           </Typography>
             <IconButton aria-label="cart">
-              <StyledBadge badgeContent={0} showZero color="primary">
+              <StyledBadge badgeContent={props.cart.cart.length} showZero color="primary">
                 <ShoppingCartIcon />
               </StyledBadge>
             </IconButton>
@@ -50,4 +53,9 @@ const Header = () => {
   )
 }
 
-export default Header;
+const mapStateToProps = state => ({
+  cart: state.cart
+})
+
+
+export default connect(mapStateToProps)(Header);
