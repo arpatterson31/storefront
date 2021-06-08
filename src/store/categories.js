@@ -5,6 +5,7 @@ let initialState = {
     { name: 'Food', displayName: 'FOOD', description: 'Things you can eat' },
   ],
   activeCategory: '',
+  activeCatDescription: ''
 }
 
 export default function catReducer(state = initialState, action){
@@ -12,7 +13,7 @@ export default function catReducer(state = initialState, action){
 
   switch(type){
     case 'ACTIVATE':
-      return {...state, activeCategory: payload};
+      return {...state, activeCategory: payload.category, activeCatDescription: payload.description};
 
     case 'INACTIVATE':
       return initialState;
@@ -22,10 +23,13 @@ export default function catReducer(state = initialState, action){
   }
 }
 
-export const activate = (category) => {
+export const activate = (category, description) => {
   return {
     type: 'ACTIVATE',
-    payload: category
+    payload: {
+      category,
+      description
+    }
   }
 }
 
