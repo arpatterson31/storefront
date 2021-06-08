@@ -6,7 +6,7 @@ import { makeStyles } from '@material-ui/styles';
 const useStyles = makeStyles ({
   footer:{
     background: '#f50057',
-    marginTop: '20px'
+    marginTop: '150px'
   }
 });
 
