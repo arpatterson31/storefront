@@ -1,4 +1,4 @@
-# Lab: Class 36
+# Lab: Class 36-37
 
 ## Project: Store Front
 
