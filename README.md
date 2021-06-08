@@ -6,7 +6,7 @@
 
 ## Virtual Store
 
-- Creationg of an e-Commerce storefront using React with Redux, coupled with your live API server.
+- Creation of an e-Commerce storefront using React with Redux, coupled with your live API server.
 
 ### Phase 1 - Application Setup
 
