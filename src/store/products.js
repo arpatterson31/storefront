@@ -17,8 +17,11 @@ export default function productReducer(state = initialState, action) {
   let { type, payload } = action;
 
   switch(type) {
+    case 'ALL PRODUCTS':
+      return state.products
+      
     case 'ACTIVATE':
-      const activeProducts = getProducts(payload);
+      const activeProducts = getFilteredProducts(payload);
       return {...state, activeProducts: activeProducts }
 
     default: 
@@ -26,8 +29,14 @@ export default function productReducer(state = initialState, action) {
   }
 }
 
-export const getProducts = (category) => {
+export const getFilteredProducts = (category) => {
   const products = initialState.products;
   const filteredProducts = products.filter(product => product.category === category);
   return filteredProducts;
+}
+
+export const allProducts = () => {
+  return {
+    type: 'ALL PRODUCTS'
+  }
 }
