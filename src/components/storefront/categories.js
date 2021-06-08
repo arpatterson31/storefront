@@ -9,7 +9,7 @@ const Category = props => {
       <h3>Browse our Categories</h3>
       <ul>
         {props.categories.category.map(cat => (
-          <li onClick={() => props.activate(cat.name)} key={cat.name}>{cat.displayName}</li>
+          <li onClick={() => props.activate(cat.name, cat.description)} key={cat.name}>{cat.displayName}</li>
         ))}
       </ul>
     </section>
