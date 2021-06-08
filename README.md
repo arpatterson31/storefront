@@ -35,7 +35,7 @@
 
 ## Links and Resources
 
-- [Deployed Site](https://xyz.com)
+- [Deployed Site](https://nervous-ritchie-ae064d.netlify.app/)
 - [Pull Request Redux to Main](https://github.com/arpatterson31/storefront/pull/1)
 
 ### UML
