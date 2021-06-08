@@ -8,12 +8,18 @@
 
 - Creation of an e-Commerce storefront using React with Redux, coupled with your live API server.
 
+## Links and Resources
+
+- [Deployed Site](https://nervous-ritchie-ae064d.netlify.app/)
+- [Pull Request Redux to Main](https://github.com/arpatterson31/storefront/pull/1)
+- [Pull Request Combined Reducers to Main](https://github.com/arpatterson31/storefront/pull/2)
+
 ### Phase 1 - Application Setup
 
 - Basic React Application
 - Redux State Management
 - State managed in memory
-- Material UI Components & Stylin
+- Material UI Components & Styling
 
 ### Phase 2 - Shopping Cart
 
@@ -32,11 +38,6 @@
 - Refactor the store to use the latest Redux design pattern (Redux Toolkit)
 - Add a cart checkout page
 - Add a product details page
-
-## Links and Resources
-
-- [Deployed Site](https://nervous-ritchie-ae064d.netlify.app/)
-- [Pull Request Redux to Main](https://github.com/arpatterson31/storefront/pull/1)
 
 ### UML
 
