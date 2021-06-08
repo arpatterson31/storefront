@@ -1,6 +1,5 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -10,15 +9,23 @@ import CardMedia from '@material-ui/core/CardMedia';
 import IconButton from '@material-ui/core/IconButton';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import Button from '@material-ui/core/Button';
-
+import { makeStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 
 import { activate, inactivate } from '../../store/categories.js';
 import { getFilteredProducts, allProducts } from '../../store/products.js';
 import { addToCart } from '../../store/cart.js';
 
-const Products = props => {
+const useStyles = makeStyles(theme => ({
+  root: {
+    maxWidth: 345,
+    flexGrow: 1,
+    padding: theme.spacing(2)
+  },
+}));
 
+const Products = props => {
+  const classes = useStyles();
 
   return (
     <section>
@@ -30,9 +37,10 @@ const Products = props => {
           if (item.category === props.categories.activeCategory)
           return (
           <Grid item key={item.name}>
-            <Card>
+            <Card className={classes.root}>
               <CardActionArea>
                 <CardMedia
+                  component="img"
                   image={item.image}
                   title={item.name}
                 />
