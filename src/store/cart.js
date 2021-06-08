@@ -7,7 +7,7 @@ export default function cartReducer(state = initialState, action) {
 
   switch(type) {
     case 'ADD_TO_CART':
-      return {...state, cart: [...state.cart, payload.name]}
+      return {...state, cart: [...state.cart, payload]}
 
     default:
       return state;
