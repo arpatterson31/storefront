@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
@@ -12,8 +12,8 @@ import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 
-import { activate, inactivate } from '../../store/categories.js';
-import { getFilteredProducts, allProducts } from '../../store/products.js';
+import * as actions from '../../store/actions.js';
+
 import { addToCart } from '../../store/cart.js';
 
 const useStyles = makeStyles(theme => ({
@@ -27,13 +27,23 @@ const useStyles = makeStyles(theme => ({
 const Products = props => {
   const classes = useStyles();
 
+  const fetchData = (e) => {
+    e && e.preventDefault();
+    props.get();
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  console.log('PROPS API', props.productAPI);
   return (
     <section>
       <Typography align="center" variant="h3">{props.categories.activeCategory}</Typography>
       <Typography align="center" variant="subtitle1" style={{ marginBottom: "60px" }}>{props.categories.activeCatDescription}</Typography>
 
       <Grid container justify="center" spacing={4}>
-        {props.products.products.map(item => {
+        {props.productAPI.products.map(item => {
           if (item.category === props.categories.activeCategory)
           return (
           <Grid item key={item.name}>
@@ -79,9 +89,13 @@ const Products = props => {
 const mapStateToProps = state => ({
   products: state.products,
   categories: state.categories,
-  cart: state.cart
+  cart: state.cart,
+  productAPI: state.productAPI
 })
 
-const mapDispatchToProps = { addToCart }
+const mapDispatchToProps = (dispatch, getState) => ({ 
+  get: () => dispatch(actions.getRemoteData()),
+  addToCart
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Products);
