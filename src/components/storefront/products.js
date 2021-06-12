@@ -15,6 +15,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../store/actions.js';
 
 import { addToCart } from '../../store/cart.js';
+import { isDoExpression } from '@babel/types';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -43,10 +44,10 @@ const Products = props => {
       <Typography align="center" variant="subtitle1" style={{ marginBottom: "60px" }}>{props.categories.activeCatDescription}</Typography>
 
       <Grid container justify="center" spacing={4}>
-        {props.productAPI.products.map(item => {
+        {props.productAPI.products.map((item, idx) => {
           if (item.category === props.categories.activeCategory)
           return (
-          <Grid item key={item.name}>
+          <Grid item key={idx}>
             <Card className={classes.root}>
               <CardActionArea>
                 <CardMedia

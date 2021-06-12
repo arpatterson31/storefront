@@ -9,5 +9,7 @@ export default (state = initialState, action) => {
     case 'GET':
       return {...state, products: payload};
 
+    default:
+      return state;
   }
 }
