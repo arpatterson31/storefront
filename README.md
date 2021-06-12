@@ -42,6 +42,10 @@
 - Add a cart checkout page
 - Add a product details page
 
+### Resources
+
+- [useParams() find from ReactRouter](https://reactrouter.com/web/example/url-params)
+
 ### UML
 
 - Lab 36 UML
