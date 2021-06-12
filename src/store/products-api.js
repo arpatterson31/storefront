@@ -9,15 +9,6 @@ export default (state = initialState, action) => {
     case 'GET':
       return {...state, products: payload};
 
-    case 'PUT':
-      return payload;
-
-    case 'POST':
-      return payload;
-
-    case 'DELETE':
-      return payload;
-
     default:
       return state;
   }
