@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -29,7 +30,7 @@ const SimpleCart = props => {
           <Card className={classes.root} raised>
             <CardContent>
               {props.cart.cart.map((item, idx) => (
-                <Typography key={idx} variant="body2">
+                <Typography key={idx} variant="body2" component={Link} to={`/product/${item._id}`}>
                   {item.name}
                   <IconButton color="secondary" edge="end" aria-label="delete" onClick={() => props.incrementRemoteData(item, idx)}>
                     <HighlightOffRoundedIcon />
