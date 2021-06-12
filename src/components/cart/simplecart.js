@@ -27,8 +27,8 @@ const SimpleCart = props => {
         <div>
           <Card className={classes.root} raised>
             <CardContent>
-              {props.cart.cart.map(item => (
-                <Typography key={item.name} variant="body2">
+              {props.cart.cart.map((item, idx) => (
+                <Typography key={idx} variant="body2">
                   {item.name}
                   <IconButton color="secondary" edge="end" aria-label="delete">
                     <HighlightOffRoundedIcon />
@@ -55,5 +55,7 @@ const mapStateToProps = (state) => {
     cart: state.cart
   }
 }
+
+const mapDispatchToProps = { deleteRemoteData }
 
 export default connect(mapStateToProps)(SimpleCart);
