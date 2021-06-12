@@ -2,7 +2,6 @@ import superagent from 'superagent';
 
 let api = 'https://audrey-api-server.herokuapp.com/products';
 
-// response.body works
 export const getRemoteData = () => dispatch => {
   return superagent.get(api)
     .then(response => {
@@ -10,13 +9,37 @@ export const getRemoteData = () => dispatch => {
     })
 }
 
-export const putRemoteData = (id, data) => async dispatch => {
-  let response = await superagent.put(`${api}/${id}`).send(data);
+export const putRemoteData = (data) => dispatch => {
+  return superagent.put(`${api}/${data._id}`).send(data)
+    .then(response => {
+      dispatch(incrementCount(response.body));
+    })
+}
+
+export const deleteRemoteData = (data) => async dispatch => {
+  return (await superagent.put(`${api}/${data._id}`)).send(data)
+    .then(response => {
+      dispatch(decrementCount(response.body));
+    })
 }
 
 export const getAction = data => {
   return {
     type: 'GET',
+    payload: data
+  }
+}
+
+export const incrementCount = data => {
+  return {
+    type: 'INCREMENT_COUNT',
+    payload: data
+  }
+}
+
+export const decrementCount = data => {
+  return {
+    type: 'DECREMENT_COUNT',
     payload: data
   }
 }
