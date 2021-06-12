@@ -8,6 +8,7 @@ import HighlightOffRoundedIcon from '@material-ui/icons/HighlightOffRounded';
 import IconButton from '@material-ui/core/IconButton';
 
 import { connect } from 'react-redux';
+import { incrementRemoteData } from '../../store/cart.js';
 
 const useStyles = makeStyles({
   root: {
@@ -30,7 +31,7 @@ const SimpleCart = props => {
               {props.cart.cart.map((item, idx) => (
                 <Typography key={idx} variant="body2">
                   {item.name}
-                  <IconButton color="secondary" edge="end" aria-label="delete">
+                  <IconButton color="secondary" edge="end" aria-label="delete" onClick={() => props.incrementRemoteData(item, idx)}>
                     <HighlightOffRoundedIcon />
                   </IconButton>
                 </Typography>
@@ -56,6 +57,6 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = { deleteRemoteData }
+const mapDispatchToProps = { incrementRemoteData }
 
-export default connect(mapStateToProps)(SimpleCart);
+export default connect(mapStateToProps, mapDispatchToProps)(SimpleCart);
