@@ -11,6 +11,7 @@ import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import * as actions from '../../store/actions.js';
 
@@ -72,7 +73,11 @@ const Products = props => {
                 >
                   <AddShoppingCartIcon />
                 </IconButton>
-                <Button size="small" color="primary">
+                <Button 
+                component={Link} to={`/product/${item._id}`}
+                size="small" 
+                color="primary"
+                >
                   View Details
                   </Button>
               </CardActions>
