@@ -29,7 +29,7 @@ export const decrementRemoteData = (data) => dispatch => {
   data.count--;
   return superagent.put(`${api}/${data._id}`).send(data)
     .then(response => {
-      dispatch(addtoCart(response.body));
+      dispatch(addToCart(response.body));
     })
 }
 

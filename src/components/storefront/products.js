@@ -11,11 +11,12 @@ import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import * as actions from '../../store/actions.js';
 
-import { addToCart } from '../../store/cart.js';
-import { isDoExpression } from '@babel/types';
+import { decrementRemoteData } from '../../store/cart.js';
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -72,7 +73,11 @@ const Products = props => {
                 >
                   <AddShoppingCartIcon />
                 </IconButton>
-                <Button size="small" color="primary">
+                <Button 
+                component={Link} to={`/product/${item._id}`}
+                size="small" 
+                color="primary"
+                >
                   View Details
                   </Button>
               </CardActions>
@@ -96,7 +101,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = (dispatch, getState) => ({ 
   get: () => dispatch(actions.getRemoteData()),
-  addToCart: (item) => dispatch(addToCart(item))
+  addToCart: (item) => dispatch(decrementRemoteData(item))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Products);

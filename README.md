@@ -15,6 +15,7 @@
 - [Pull Request Combined Reducers to Main](https://github.com/arpatterson31/storefront/pull/2)
 - [Pull Request Thunk to Main](https://github.com/arpatterson31/storefront/pull/3)
 - [Pull Request Thunk-Day2 to Main](https://github.com/arpatterson31/storefront/pull/4)
+- [Pull Request rtk to Main](https://github.com/arpatterson31/storefront/pull/5)
 
 ### Phase 1 - Application Setup
 
@@ -40,6 +41,10 @@
 - Refactor the store to use the latest Redux design pattern (Redux Toolkit)
 - Add a cart checkout page
 - Add a product details page
+
+### Resources
+
+- [useParams() find from ReactRouter](https://reactrouter.com/web/example/url-params)
 
 ### UML
 
