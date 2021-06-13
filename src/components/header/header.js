@@ -47,7 +47,12 @@ const Header = (props) => {
               Audrey's Wares
           </Typography>
             <IconButton aria-label="cart">
-              <StyledBadge badgeContent={props.cart.cart.length} showZero color="primary">
+              <StyledBadge 
+              badgeContent={props.cart.cart.length} 
+              showZero 
+              color="primary"
+              component={Link} to="/cart" style={{ textDecoration: "none", color: "black" }}
+              >
                 <ShoppingCartIcon />
               </StyledBadge>
             </IconButton>
