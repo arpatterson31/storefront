@@ -11,7 +11,7 @@ import Button from '@material-ui/core/Button';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import { makeStyles } from '@material-ui/core/styles';
 
-import { addToCart } from '../../store/cart.js';
+import { decrementRemoteData } from '../../store/cart.js';
 
 
 
@@ -93,7 +93,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = (dispatch, getState) => ({ 
-  addToCart: (product) => dispatch(addToCart(product))
+  addToCart: (product) => dispatch(decrementRemoteData(product))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductDetails);

@@ -15,7 +15,7 @@ import { Link } from 'react-router-dom';
 
 import * as actions from '../../store/actions.js';
 
-import { addToCart } from '../../store/cart.js';
+import { decrementRemoteData } from '../../store/cart.js';
 
 
 const useStyles = makeStyles(theme => ({
@@ -101,7 +101,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = (dispatch, getState) => ({ 
   get: () => dispatch(actions.getRemoteData()),
-  addToCart: (item) => dispatch(addToCart(item))
+  addToCart: (item) => dispatch(decrementRemoteData(item))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Products);
