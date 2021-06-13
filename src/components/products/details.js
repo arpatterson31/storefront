@@ -9,6 +9,13 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
+import Accordion from '@material-ui/core/Accordion';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
 import { makeStyles } from '@material-ui/core/styles';
 
 import { decrementRemoteData } from '../../store/cart.js';
@@ -21,17 +28,35 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
     padding: theme.spacing(2)
   },
+  container: {
+    margin: "auto",
+    width: "50%"
+  },
   button: {
     maxWidth: 450,
     flexGrow: 1,
-    padding: theme.spacing(2)
+    padding: theme.spacing(2),
+    margin: "0 0 55px"
   },
   header: {
     margin: "45px 0 0"
   },
   sub: {
     margin: "0 0 30px"
-  }
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+    margin: "15px 0 15px"
+  },
+  root: {
+    width: '100%',
+  },
+  heading: {
+    fontSize: theme.typography.pxToRem(15),
+    fontWeight: theme.typography.fontWeightRegular,
+  },
 }));
 
 const ProductDetails = props => {
@@ -52,7 +77,7 @@ const ProductDetails = props => {
         {product.description}
       </Typography>
 
-      <Container >
+      <Container className={classes.container} >
         <Card className={classes.card}>
           <CardMedia
             component="img"
@@ -78,6 +103,52 @@ const ProductDetails = props => {
         >
           Buy
       </Button>
+
+        <Typography variant="h5">Related Items</Typography>
+
+        <Grid container spacing={0}>
+          <Grid item xs={4}>
+            <Paper className={classes.paper}>Suggestion 1</Paper>
+          </Grid>
+          <Grid item xs={4}>
+            <Paper className={classes.paper}>Suggestion 2</Paper>
+          </Grid>
+          <Grid item xs={4}>
+            <Paper className={classes.paper}>Suggestion 3</Paper>
+          </Grid>
+        </Grid>
+
+        <Typography variant="h5">Product Details</Typography>
+
+
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+          >
+            <Typography className={classes.heading}>Specifications</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+              {product.description}
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel2a-content"
+            id="panel2a-header"
+          >
+            <Typography className={classes.heading}>User Reviews</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+              Great product..will purchase again!
+          </Typography>
+          </AccordionDetails>
+        </Accordion>
       </Container>
 
 
@@ -92,7 +163,7 @@ const mapStateToProps = state => ({
   productAPI: state.productAPI
 })
 
-const mapDispatchToProps = (dispatch, getState) => ({ 
+const mapDispatchToProps = (dispatch, getState) => ({
   addToCart: (product) => dispatch(decrementRemoteData(product))
 });
 
