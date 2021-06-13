@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
   },
   container: {
     margin: "auto",
-    width: "50%"
+    width: "max-content"
   },
   button: {
     maxWidth: 450,
