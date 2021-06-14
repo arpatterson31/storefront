@@ -53,7 +53,7 @@ const ShoppingCart = props => {
     for (let i = 0; i < arr.length; i++) {
       cartTotal = cartTotal + arr[i].price
     }
-    return cartTotal;
+    return Number.parseFloat(cartTotal).toFixed(2);
   }
 
   const thanks = () => {
