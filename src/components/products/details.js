@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
   },
   container: {
     margin: "auto",
-    width: "max-content"
+
   },
   button: {
     maxWidth: 450,
@@ -101,7 +101,7 @@ const ProductDetails = props => {
           startIcon={<AddShoppingCartIcon />}
           onClick={() => props.addToCart(product)}
         >
-          Buy
+          Add To Cart
       </Button>
 
         <Typography variant="h5">Related Items</Typography>
