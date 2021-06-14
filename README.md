@@ -15,7 +15,7 @@
 - [Pull Request Combined Reducers to Main](https://github.com/arpatterson31/storefront/pull/2)
 - [Pull Request Thunk to Main](https://github.com/arpatterson31/storefront/pull/3)
 - [Pull Request Thunk-Day2 to Main](https://github.com/arpatterson31/storefront/pull/4)
-- [Pull Request rtk to Main](https://github.com/arpatterson31/storefront/pull/5)
+- [Pull Request rtk to Main](https://github.com/arpatterson31/storefront/pull/7)
 
 ### Phase 1 - Application Setup
 

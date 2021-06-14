@@ -11,13 +11,12 @@ import GridList from '@material-ui/core/GridList';
 import Button from '@material-ui/core/Button';
 
 import { makeStyles } from '@material-ui/core/styles';
-import { template } from '@babel/core';
 
 
 const useStyles = makeStyles(theme => ({
   container: {
     margin: "auto",
-    width: "75%"
+    flexGrow: 1
   },
   title: {
     flex: '1 1 100%',
@@ -31,17 +30,18 @@ const useStyles = makeStyles(theme => ({
     margin: "0 0 5px 15px"
   },
   gridList: {
-    width: 250,
-    height: 350,
+    width: 150,
+    height: 400,
   },
   gridList2: {
-    width: 250,
-    height: 350
+    width: 150,
+    height: 400
   },
   button: {
-    marginLeft: "25vw",
+    marginTop: "5vh",
+    marginLeft: "20vw",
     marginBottom: "5vh"
-    
+
   }
 }));
 
@@ -56,13 +56,17 @@ const ShoppingCart = props => {
     return cartTotal;
   }
 
+  const thanks = () => {
+    alert('Thank you for your purchase!');
+  }
+
   let total = cartTotal(props.cart.cart);
 
   return (
     <>
 
       <Container className={classes.container}>
-        <Paper>
+        <Paper className={classes.paper}>
 
           <Typography className={classes.title} variant="h6" component="div">
             Order Summary
@@ -111,12 +115,20 @@ const ShoppingCart = props => {
                   InputLabelProps={{
                     shrink: true,
                   }}
+                  style={{ width: 140}}
                 />
                 <TextField id="cvv" label="CVV" />
               </form>
             </GridList>
           </div>
-          <Button className={classes.button} variant="contained" color="primary">Place Your Order</Button>
+          <Button
+            className={classes.button}
+            variant="contained"
+            color="primary"
+            onClick={thanks}
+          >
+            Place Your Order
+          </Button>
         </Paper>
 
       </Container>
